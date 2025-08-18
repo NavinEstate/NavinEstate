@@ -10,7 +10,7 @@
       margin: 0; padding: 0; height: 100%;
       font-family: 'Segoe UI', Arial, sans-serif;
       color: #495057;
-      background: linear-gradient(270deg, #f4f6f8, #e9f0fc, #f4f6f8);
+      background: linear-gradient(270deg, #f2cc8f, #dcae96, #ffb4a2, #f4a688);
       background-size: 600% 600%;
       animation: gradientMove 20s ease infinite;
       display: flex;
@@ -20,22 +20,33 @@
       min-height: 100vh;
       padding: 20px;
     }
-
     @keyframes gradientMove {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-
     .logo {
-      width: 160px;
-      max-width: 80%;
+      width: 130px;
+      max-width: 70%;
       margin-bottom: 20px;
       animation: fadeInUp 1.5s ease forwards;
       opacity: 0;
       transform: translateY(20px);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+    
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    
     .title {
       font-size: 2.8rem;
       font-weight: 700;
@@ -48,7 +59,6 @@
       opacity: 0;
       transform: translateY(20px);
     }
-
     h2 {
       font-size: 2rem;
       font-weight: 500;
@@ -61,11 +71,9 @@
       opacity: 0;
       transform: translateY(20px);
     }
-
     @keyframes fadeInUp {
       to {opacity: 1; transform: translateY(0);}
     }
-
     .social-links {
       display: flex;
       justify-content: center;
@@ -76,13 +84,11 @@
       opacity: 0;
       transform: scale(0.8);
     }
-
     @keyframes scaleIn {
       to {opacity: 1; transform: scale(1);}
     }
-
     .icon-card {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
       padding: 16px;
       border-radius: 18px;
@@ -96,7 +102,6 @@
       user-select: none;
       will-change: transform, box-shadow;
     }
-
     .social-links a img {
       width: 56px;
       height: 56px;
@@ -104,43 +109,127 @@
       transition: transform 0.4s ease, filter 0.4s ease;
       pointer-events: none;
     }
-
     .social-links a:hover .icon-card {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 10px 22px rgba(74, 82, 120, 0.3);
       transform: translateY(-8px) scale(1.1);
     }
-
     .social-links a:hover img {
       transform: scale(1.15) rotate(5deg);
       filter: drop-shadow(0 6px 8px rgba(0,0,0,0.2));
     }
-
     .social-links a:focus .icon-card {
       outline: 2px solid #607d8b;
       outline-offset: 4px;
     }
-
-    @media (max-width: 600px) {
-      .title { font-size: 2rem; }
-      .social-links { gap: 18px; }
-      .icon-card { padding: 14px; }
-      .social-links a img { width: 48px; height: 48px; }
+    
+    /* Responsive Design for different screen sizes */
+    @media (max-width: 768px) {
+      .logo {
+        width: 110px;
+        max-width: 60%;
+        padding: 6px;
+      }
+      .title { 
+        font-size: 2.2rem; 
+        letter-spacing: 2px;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+      .social-links { 
+        gap: 18px; 
+      }
+      .icon-card { 
+        padding: 14px; 
+      }
+      .social-links a img { 
+        width: 48px; 
+        height: 48px; 
+      }
     }
-
-    @media (max-width: 400px) {
-      .title { font-size: 1.6rem; }
-      .icon-card { padding: 10px; }
-      .social-links a img { width: 40px; height: 40px; }
+    
+    @media (max-width: 480px) {
+      .logo {
+        width: 95px;
+        max-width: 55%;
+        padding: 5px;
+      }
+      .title { 
+        font-size: 1.8rem; 
+        letter-spacing: 1.5px;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .icon-card { 
+        padding: 12px; 
+      }
+      .social-links a img { 
+        width: 42px; 
+        height: 42px; 
+      }
+      .social-links {
+        gap: 16px;
+      }
+    }
+    
+    @media (max-width: 360px) {
+      .logo {
+        width: 85px;
+        max-width: 50%;
+        padding: 4px;
+      }
+      .title { 
+        font-size: 1.6rem; 
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      .icon-card { 
+        padding: 10px; 
+      }
+      .social-links a img { 
+        width: 38px; 
+        height: 38px; 
+      }
+      .social-links {
+        gap: 14px;
+      }
+    }
+    
+    /* Desktop and larger screens */
+    @media (min-width: 1024px) {
+      .logo {
+        width: 150px;
+        max-width: 250px;
+        padding: 10px;
+      }
+      .title { 
+        font-size: 3.2rem; 
+      }
+      h2 {
+        font-size: 2.2rem;
+      }
+      .social-links { 
+        gap: 28px; 
+      }
+      .icon-card { 
+        padding: 18px; 
+      }
+      .social-links a img { 
+        width: 60px; 
+        height: 60px; 
+      }
     }
   </style>
 </head>
 <body>
   <!-- Logo Image -->
-  <img src="https://i.ibb.co/ZptwsPtJ/NAVIN.png" alt="NAVIN-ESTATE-L" border="0" />
+  <img class="logo" src="https://i.ibb.co/ZptwsPtJ/NAVIN.png" alt="NAVIN-ESTATE-L" border="0" />
   <!-- Title -->
   <div class="title">NAVIN ESTATE</div>
-
   <!-- Social Links -->
   <div class="social-links" tabindex="0">
     <a href="https://www.instagram.com/navin_estate?igsh=MTBna3c0amkyZTI1aw==" target="_blank" aria-label="Instagram">
@@ -184,13 +273,6 @@
       </div>
     </a>
   </div>
-
   <h2>Connect with Us</h2>
 </body>
 </html>
-
-
-
-
-
-
